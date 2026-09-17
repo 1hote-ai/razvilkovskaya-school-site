@@ -2,28 +2,83 @@
 @use '../../styles/mixins' as *;
 
 .footer {
-  padding-block: $space-lg;
+  padding-block: $space-2xl $space-lg;
   background-color: $color-bg-primary;
   border-top: 1px solid $color-border-light;
 
   &__inner {
     @include container;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    gap: $space-2xl;
   }
 
-  &__info {
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-xl;
+
+    @include media-md {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__col {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: $space-xs;
+  }
+
+  &__title {
+    font-family: $font-family-heading;
+    font-size: $font-size-md;
+    color: $color-text-primary;
+  }
+
+  &__desc {
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+    max-width: 300px;
+  }
+
+  &__subtitle {
+    font-size: $font-size-sm;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: $color-text-primary;
+    margin-bottom: $space-xs;
+  }
+
+  &__placeholder {
     font-size: $font-size-sm;
     color: $color-text-muted;
+    font-style: italic;
+  }
 
-    @include media-sm {
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: $space-md;
+    padding-top: $space-lg;
+    border-top: 1px solid $color-border-light;
+    font-size: $font-size-xs;
+    color: $color-text-muted;
+
+    @include media-md {
       flex-direction: row;
-      gap: $space-lg;
+      align-items: center;
     }
+  }
+
+  &__links {
+    display: flex;
+    gap: $space-sm;
+  }
+
+  &__link {
+    color: $color-text-muted;
+    font-style: italic;
   }
 }

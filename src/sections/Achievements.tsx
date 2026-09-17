@@ -2,10 +2,10 @@ import styles from './Achievements.module.scss';
 import placeholderImg from '../assets/images/cover/building-placeholder.svg';
 
 const ACHIEVEMENTS = [
-  { id: 1, title: '[НАЗВАНИЕ]', category: 'Олимпиады', year: '[ГОД]', desc: '[ОПИСАНИЕ ПОБЕДЫ]' },
-  { id: 2, title: '[НАЗВАНИЕ]', category: 'Спорт', year: '[ГОД]', desc: '[ОПИСАНИЕ ПОБЕДЫ]' },
-  { id: 3, title: '[НАЗВАНИЕ]', category: 'Конкурсы', year: '[ГОД]', desc: '[ОПИСАНИЕ ПОБЕДЫ]' },
-  { id: 4, title: '[НАЗВАНИЕ]', category: 'Проекты', year: '[ГОД]', desc: '[ОПИСАНИЕ ПОБЕДЫ]' },
+  { id: 1, title: 'Победа в олимпиаде', category: 'Олимпиады', year: '—', desc: 'Информация о достижении будет добавлена.' },
+  { id: 2, title: 'Спортивный кубок', category: 'Спорт', year: '—', desc: 'Информация о достижении будет добавлена.' },
+  { id: 3, title: 'Творческий конкурс', category: 'Конкурсы', year: '—', desc: 'Информация о достижении будет добавлена.' },
+  { id: 4, title: 'Научный проект', category: 'Проекты', year: '—', desc: 'Информация о достижении будет добавлена.' },
 ];
 
 export function Achievements() {
@@ -13,15 +13,15 @@ export function Achievements() {
     <section id="achievements" className={styles.achievements} aria-label="Достижения">
       <div className={styles.achievements__inner}>
         <div className={styles.achievements__header}>
-          <h2 className={styles.achievements__title}>ДОСТИЖЕНИЯ</h2>
-          <p className={styles.achievements__subtitle}>Кубки, грамоты и награды</p>
+          <h2 className={styles.achievements__title}>Достижения</h2>
+          <p className={styles.achievements__subtitle}>Кубки, грамоты и награды школы</p>
         </div>
 
         <div className={styles.achievements__grid}>
-          {ACHIEVEMENTS.map(item => (
-            <div key={item.id} className={styles.card}>
+          {ACHIEVEMENTS.map((item, index) => (
+            <div key={item.id} className={`${styles.card} ${index === 0 ? styles['card--featured'] : ''}`}>
               <div className={styles.card__image}>
-                <img src={placeholderImg} alt="Награда" />
+                <img src={placeholderImg} alt={item.category} />
               </div>
               <div className={styles.card__content}>
                 <div className={styles.card__meta}>

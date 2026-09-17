@@ -23,7 +23,7 @@ export function Gallery() {
     <section id="gallery" className={styles.gallery} aria-label="Галерея">
       <div className={styles.gallery__inner}>
         <div className={styles.gallery__header}>
-          <h2 className={styles.gallery__title}>ГАЛЕРЕЯ</h2>
+          <h2 className={styles.gallery__title}>Галерея</h2>
           <p className={styles.gallery__subtitle}>Школа в деталях</p>
         </div>
 

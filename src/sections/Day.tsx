@@ -1,11 +1,11 @@
 import styles from './Day.module.scss';
 
 const SCHEDULE = [
-  { time: '08:30', event: 'Первый урок', type: 'Учеба' },
-  { time: '10:20', event: 'Большая перемена', type: 'Отдых' },
-  { time: '12:00', event: 'Обед', type: 'Питание' },
-  { time: '14:00', event: 'Дополнительные занятия', type: 'Развитие' },
-  { time: '16:00', event: 'Внеурочная деятельность', type: 'Творчество' },
+  { time: '—:—', event: 'Начало учебного дня', type: 'Утро' },
+  { time: '—:—', event: 'Основной образовательный блок', type: 'Учеба' },
+  { time: '—:—', event: 'Время для отдыха и питания', type: 'Перерыв' },
+  { time: '—:—', event: 'Дополнительное образование', type: 'Развитие' },
+  { time: '—:—', event: 'Завершение дня, секции', type: 'Спорт / Творчество' },
 ];
 
 export function Day() {
@@ -13,8 +13,8 @@ export function Day() {
     <section id="day" className={styles.day} aria-label="Один день в школе">
       <div className={styles.day__inner}>
         <div className={styles.day__header}>
-          <h2 className={styles.day__title}>ОДИН ДЕНЬ В ШКОЛЕ</h2>
-          <p className={styles.day__subtitle}>Расписание и жизнь (демонстрационные данные)</p>
+          <h2 className={styles.day__title}>Один день в школе</h2>
+          <p className={styles.day__subtitle}>Структура образовательного процесса (в разработке)</p>
         </div>
 
         <div className={styles.day__timeline}>

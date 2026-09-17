@@ -4,6 +4,7 @@
 .about {
   padding-block: $space-3xl;
   background-color: $color-bg-primary;
+  border-bottom: 1px solid $color-border-light;
 
   @include media-md {
     padding-block: $space-4xl;
@@ -14,12 +15,18 @@
     display: flex;
     flex-direction: column;
     gap: $space-xl;
+
+    @include media-lg {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: $space-3xl;
+    }
   }
 
   &__content {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
+    flex: 1;
+    max-width: 600px;
     display: flex;
     flex-direction: column;
     gap: $space-md;
@@ -42,15 +49,26 @@
     color: $color-text-secondary;
   }
 
+  &__placeholderNote {
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+    font-style: italic;
+  }
+
   &__stats {
+    flex: 1;
     display: grid;
     grid-template-columns: 1fr;
     gap: $space-md;
-    margin-top: $space-md;
+    width: 100%;
 
     @include media-sm {
-      grid-template-columns: repeat(3, 1fr);
-      gap: $space-lg;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @include media-lg {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 500px;
     }
   }
 }
@@ -58,12 +76,11 @@
 .stat {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   padding: $space-lg;
-  background: $color-bg-secondary;
-  border-radius: $border-radius-lg;
-  text-align: center;
+  border-top: 1px solid $color-border;
+  background: transparent;
 
   &__value {
     font-family: $font-family-heading;

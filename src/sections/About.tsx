@@ -7,21 +7,28 @@ export function About() {
         <div className={styles.about__content}>
           <h2 className={styles.about__title}>О школе</h2>
           <p className={styles.about__text}>
-            [ДАННЫЕ БУДУТ ДОБАВЛЕНЫ] — короткое, но ёмкое описание школы, её миссии, истории и особенностей образовательного процесса.
+            Школа — это не только здание, но и пространство для развития, 
+            формирования ценностей и подготовки к будущему. Здесь закладывается 
+            фундамент знаний, раскрываются таланты и создаются возможности для каждого.
+            <br/><br/>
+            <span className={styles.about__placeholderNote}>
+              Подробная информация об истории, миссии и образовательном 
+              процессе будет опубликована в ближайшее время.
+            </span>
           </p>
         </div>
         
         <div className={styles.about__stats}>
           <div className={styles.stat}>
-            <span className={styles.stat__value}>[XXXX]</span>
+            <span className={styles.stat__value}>—</span>
             <span className={styles.stat__label}>учеников</span>
           </div>
           <div className={styles.stat}>
-            <span className={styles.stat__value}>[XX]</span>
+            <span className={styles.stat__value}>—</span>
             <span className={styles.stat__label}>кабинетов</span>
           </div>
           <div className={styles.stat}>
-            <span className={styles.stat__value}>[XX]</span>
+            <span className={styles.stat__value}>—</span>
             <span className={styles.stat__label}>лет истории</span>
           </div>
         </div>
