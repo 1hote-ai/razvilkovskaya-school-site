@@ -5,24 +5,17 @@
 @use 'variables' as *;
 
 // --- Responsive breakpoints ---
-@mixin media-sm {
-  @media (min-width: $breakpoint-sm) { @content; }
-}
+@mixin media-sm { @media (min-width: $breakpoint-sm) { @content; } }
+@mixin media-md { @media (min-width: $breakpoint-md) { @content; } }
+@mixin media-lg { @media (min-width: $breakpoint-lg) { @content; } }
+@mixin media-xl { @media (min-width: $breakpoint-xl) { @content; } }
+@mixin media-2xl { @media (min-width: $breakpoint-2xl) { @content; } }
 
-@mixin media-md {
-  @media (min-width: $breakpoint-md) { @content; }
-}
-
-@mixin media-lg {
-  @media (min-width: $breakpoint-lg) { @content; }
-}
-
-@mixin media-xl {
-  @media (min-width: $breakpoint-xl) { @content; }
-}
-
-@mixin media-2xl {
-  @media (min-width: $breakpoint-2xl) { @content; }
+// --- Accessibility / Reduced Motion ---
+@mixin prefers-reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
 }
 
 // --- Container ---
@@ -30,41 +23,55 @@
   width: 100%;
   max-width: $container-max-width;
   margin-inline: auto;
-  padding-inline: $container-padding;
+  padding-inline: $container-padding-mob;
+
+  @include media-md {
+    padding-inline: $container-padding-tab;
+  }
+  
+  @include media-xl {
+    padding-inline: $container-padding-desk;
+  }
 }
 
 // --- Typography presets ---
-@mixin heading-display {
+@mixin heading-hero {
   font-family: $font-family-heading;
-  font-weight: $font-weight-bold;
-  line-height: $line-height-tight;
-  letter-spacing: $letter-spacing-tight;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-heading;
+  font-size: $font-size-3xl;
+  
+  @include media-xl {
+    font-size: $font-size-4xl;
+  }
 }
 
 @mixin heading-section {
   font-family: $font-family-heading;
-  font-weight: $font-weight-semibold;
-  line-height: $line-height-snug;
-  letter-spacing: $letter-spacing-tight;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-heading;
+  font-size: $font-size-2xl;
+  
+  @include media-xl {
+    font-size: $font-size-3xl;
+  }
 }
 
 @mixin body-text {
   font-family: $font-family-body;
   font-weight: $font-weight-regular;
-  line-height: $line-height-relaxed;
-  letter-spacing: $letter-spacing-normal;
+  line-height: $line-height-base;
+  font-size: $font-size-base;
 }
 
 @mixin caption-text {
   font-family: $font-family-body;
   font-weight: $font-weight-medium;
   font-size: $font-size-sm;
-  line-height: $line-height-normal;
-  letter-spacing: $letter-spacing-wide;
-  text-transform: uppercase;
+  color: $color-text-secondary;
 }
 
-// --- Visually hidden (accessible) ---
+// --- Accessibility ---
 @mixin visually-hidden {
   position: absolute;
   width: 1px;
@@ -77,10 +84,10 @@
   border: 0;
 }
 
-// --- Focus visible ---
 @mixin focus-visible {
   &:focus-visible {
     outline: 2px solid $color-accent;
-    outline-offset: 2px;
+    outline-offset: 4px;
+    border-radius: $border-radius-sm;
   }
 }
