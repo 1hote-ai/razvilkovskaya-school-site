@@ -1,11 +1,13 @@
 import Header from './components/Header/Header'
+import { Cover, About } from './sections'
 
 function App() {
   return (
     <>
       <Header />
       <main>
-        {/* Секции сайта будут добавлены по заданиям архитектора проекта */}
+        <Cover />
+        <About />
       </main>
     </>
   )

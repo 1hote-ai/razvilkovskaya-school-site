@@ -8,9 +8,16 @@
   right: 0;
   z-index: 100;
   padding-block: $space-md;
-  background-color: rgba($color-bg-primary, 0.95);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid $color-border-light;
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background-color $transition-base, border-color $transition-base, padding-block $transition-base;
+
+  &--scrolled {
+    background-color: rgba($color-bg-primary, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid $color-border-light;
+    padding-block: $space-sm;
+  }
 
   &__inner {
     @include container;
@@ -25,13 +32,43 @@
     font-size: $font-size-sm;
     text-transform: uppercase;
     color: $color-text-primary;
+    text-decoration: none;
+    line-height: 1.2;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $color-accent;
+    }
   }
 
   &__nav {
     display: none;
 
+    &--open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: $color-bg-primary;
+      padding: $space-md;
+      gap: $space-md;
+      border-bottom: 1px solid $color-border-light;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
     @include media-md {
       display: flex;
+      flex-direction: row;
+      position: static;
+      background-color: transparent;
+      padding: 0;
+      border: none;
+      box-shadow: none;
+      gap: $space-lg;
+    }
+    @include media-lg {
       gap: $space-xl;
     }
   }
@@ -39,12 +76,72 @@
   &__link {
     font-size: $font-size-sm;
     font-weight: $font-weight-medium;
-    color: $color-text-secondary;
+    color: $color-text-primary;
+    text-decoration: none;
     transition: color $transition-fast;
     @include focus-visible;
 
     &:hover {
-      color: $color-text-primary;
+      color: $color-accent;
+    }
+  }
+
+  &__menuBtn {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+
+    @include media-md {
+      display: none;
+    }
+  }
+
+  &__menuIcon {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: $color-text-primary;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: background-color $transition-fast;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: $color-text-primary;
+      left: 0;
+      transition: transform $transition-fast, top $transition-fast, bottom $transition-fast;
+    }
+
+    &::before {
+      top: -6px;
+    }
+
+    &::after {
+      bottom: -6px;
+    }
+
+    &--open {
+      background-color: transparent;
+
+      &::before {
+        top: 0;
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        bottom: 0;
+        transform: rotate(-45deg);
+      }
     }
   }
 }

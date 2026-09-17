@@ -1,0 +1,38 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.about {
+  padding-block: $space-3xl;
+  background-color: $color-bg-primary;
+
+  @include media-md {
+    padding-block: $space-4xl;
+  }
+
+  &__inner {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__title {
+    font-family: $font-family-heading;
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-regular;
+    color: $color-text-primary;
+
+    @include media-md {
+      font-size: $font-size-3xl;
+    }
+  }
+
+  &__text {
+    font-size: $font-size-md;
+    line-height: $line-height-base;
+    color: $color-text-secondary;
+  }
+}

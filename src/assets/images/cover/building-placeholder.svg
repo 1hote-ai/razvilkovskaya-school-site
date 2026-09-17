@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <rect width="1920" height="1080" fill="#e5e7eb" />
+  <g fill="#9ca3af">
+    <!-- Center building body -->
+    <rect x="760" y="400" width="400" height="600" />
+    <!-- Left wing -->
+    <rect x="360" y="550" width="400" height="450" />
+    <!-- Right wing -->
+    <rect x="1160" y="550" width="400" height="450" />
+    <!-- Roofs -->
+    <polygon points="740,400 960,250 1180,400" />
+    <polygon points="340,550 560,450 780,550" />
+    <polygon points="1140,550 1360,450 1580,550" />
+    <!-- Windows Center -->
+    <rect x="800" y="450" width="60" height="80" fill="#d1d5db"/>
+    <rect x="900" y="450" width="60" height="80" fill="#d1d5db"/>
+    <rect x="1000" y="450" width="60" height="80" fill="#d1d5db"/>
+    <rect x="800" y="580" width="60" height="80" fill="#d1d5db"/>
+    <rect x="900" y="580" width="60" height="80" fill="#d1d5db"/>
+    <rect x="1000" y="580" width="60" height="80" fill="#d1d5db"/>
+    <!-- Windows Left -->
+    <rect x="420" y="600" width="60" height="80" fill="#d1d5db"/>
+    <rect x="520" y="600" width="60" height="80" fill="#d1d5db"/>
+    <rect x="620" y="600" width="60" height="80" fill="#d1d5db"/>
+    <!-- Windows Right -->
+    <rect x="1240" y="600" width="60" height="80" fill="#d1d5db"/>
+    <rect x="1340" y="600" width="60" height="80" fill="#d1d5db"/>
+    <rect x="1440" y="600" width="60" height="80" fill="#d1d5db"/>
+    <!-- Door -->
+    <rect x="910" y="880" width="100" height="120" fill="#6b7280"/>
+  </g>
+</svg>
