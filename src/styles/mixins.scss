@@ -1,0 +1,86 @@
+// ============================================
+// Mixins — responsive, typography, layout
+// ============================================
+
+@use 'variables' as *;
+
+// --- Responsive breakpoints ---
+@mixin media-sm {
+  @media (min-width: $breakpoint-sm) { @content; }
+}
+
+@mixin media-md {
+  @media (min-width: $breakpoint-md) { @content; }
+}
+
+@mixin media-lg {
+  @media (min-width: $breakpoint-lg) { @content; }
+}
+
+@mixin media-xl {
+  @media (min-width: $breakpoint-xl) { @content; }
+}
+
+@mixin media-2xl {
+  @media (min-width: $breakpoint-2xl) { @content; }
+}
+
+// --- Container ---
+@mixin container {
+  width: 100%;
+  max-width: $container-max-width;
+  margin-inline: auto;
+  padding-inline: $container-padding;
+}
+
+// --- Typography presets ---
+@mixin heading-display {
+  font-family: $font-family-heading;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  letter-spacing: $letter-spacing-tight;
+}
+
+@mixin heading-section {
+  font-family: $font-family-heading;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-snug;
+  letter-spacing: $letter-spacing-tight;
+}
+
+@mixin body-text {
+  font-family: $font-family-body;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-relaxed;
+  letter-spacing: $letter-spacing-normal;
+}
+
+@mixin caption-text {
+  font-family: $font-family-body;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-sm;
+  line-height: $line-height-normal;
+  letter-spacing: $letter-spacing-wide;
+  text-transform: uppercase;
+}
+
+// --- Visually hidden (accessible) ---
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// --- Focus visible ---
+@mixin focus-visible {
+  &:focus-visible {
+    outline: 2px solid $color-accent;
+    outline-offset: 2px;
+  }
+}
