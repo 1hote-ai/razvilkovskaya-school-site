@@ -2,10 +2,10 @@ import styles from './Achievements.module.scss';
 import placeholderImg from '../assets/images/cover/building-placeholder.svg';
 
 const ACHIEVEMENTS = [
-  { id: 1, title: 'Победа в олимпиаде', category: 'Олимпиады', year: '—', desc: 'Информация о достижении будет добавлена.' },
-  { id: 2, title: 'Спортивный кубок', category: 'Спорт', year: '—', desc: 'Информация о достижении будет добавлена.' },
-  { id: 3, title: 'Творческий конкурс', category: 'Конкурсы', year: '—', desc: 'Информация о достижении будет добавлена.' },
-  { id: 4, title: 'Научный проект', category: 'Проекты', year: '—', desc: 'Информация о достижении будет добавлена.' },
+  { id: 1, title: 'Достижение школы (в разработке)', category: 'Достижения', year: '—', desc: 'Информация о наградах, кубках и дипломах будет опубликована позже.' },
+  { id: 2, title: 'Учебные награды', category: 'Олимпиады', year: '—', desc: 'Раздел находится в стадии наполнения материалами.' },
+  { id: 3, title: 'Спортивные успехи', category: 'Спорт', year: '—', desc: 'Раздел находится в стадии наполнения материалами.' },
+  { id: 4, title: 'Творчество', category: 'Конкурсы', year: '—', desc: 'Раздел находится в стадии наполнения материалами.' },
 ];
 
 export function Achievements() {
