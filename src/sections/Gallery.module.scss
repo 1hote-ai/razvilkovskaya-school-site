@@ -1,0 +1,131 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.gallery {
+  padding-block: $space-3xl;
+  background-color: $color-bg-primary;
+
+  @include media-md {
+    padding-block: $space-4xl;
+  }
+
+  &__inner {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    gap: $space-xl;
+  }
+
+  &__header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-family: $font-family-heading;
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-regular;
+    color: $color-text-primary;
+    margin-bottom: $space-xs;
+
+    @include media-md {
+      font-size: $font-size-3xl;
+    }
+  }
+
+  &__subtitle {
+    font-size: $font-size-md;
+    color: $color-text-secondary;
+  }
+
+  &__filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: $space-sm;
+  }
+
+  &__filter {
+    padding: $space-xs $space-md;
+    border: 1px solid $color-border;
+    border-radius: 40px;
+    background: transparent;
+    color: $color-text-secondary;
+    font-family: $font-family-body;
+    font-size: $font-size-sm;
+    cursor: pointer;
+    transition: $transition-base;
+
+    &:hover {
+      border-color: $color-text-primary;
+      color: $color-text-primary;
+    }
+
+    &--active {
+      background: $color-text-primary;
+      color: $color-bg-primary;
+      border-color: $color-text-primary;
+
+      &:hover {
+        color: $color-bg-primary;
+      }
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $space-sm;
+    grid-auto-rows: 150px;
+    
+    @include media-sm {
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 200px;
+      gap: $space-md;
+    }
+    
+    @include media-lg {
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 250px;
+    }
+  }
+
+  &__item {
+    background-color: $color-bg-secondary;
+    border-radius: $border-radius-md;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: $transition-base;
+
+    &:hover {
+      transform: scale(0.98);
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.5;
+    }
+
+    &--large {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    &--medium {
+      grid-column: span 2;
+      grid-row: span 1;
+    }
+
+    &--small {
+      grid-column: span 1;
+      grid-row: span 1;
+    }
+  }
+}

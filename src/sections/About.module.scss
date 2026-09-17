@@ -13,10 +13,16 @@
     @include container;
     display: flex;
     flex-direction: column;
-    gap: $space-md;
+    gap: $space-xl;
+  }
+
+  &__content {
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
   }
 
   &__title {
@@ -34,5 +40,46 @@
     font-size: $font-size-md;
     line-height: $line-height-base;
     color: $color-text-secondary;
+  }
+
+  &__stats {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-md;
+    margin-top: $space-md;
+
+    @include media-sm {
+      grid-template-columns: repeat(3, 1fr);
+      gap: $space-lg;
+    }
+  }
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $space-lg;
+  background: $color-bg-secondary;
+  border-radius: $border-radius-lg;
+  text-align: center;
+
+  &__value {
+    font-family: $font-family-heading;
+    font-size: $font-size-2xl;
+    color: $color-accent;
+    margin-bottom: $space-2xs;
+
+    @include media-md {
+      font-size: $font-size-3xl;
+    }
+  }
+
+  &__label {
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 }

@@ -1,0 +1,29 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.footer {
+  padding-block: $space-lg;
+  background-color: $color-bg-primary;
+  border-top: 1px solid $color-border-light;
+
+  &__inner {
+    @include container;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-xs;
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+
+    @include media-sm {
+      flex-direction: row;
+      gap: $space-lg;
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import Header from './components/Header/Header'
-import { Cover, About } from './sections'
+import { Footer } from './components/Footer/Footer'
+import { Cover, About, Space, Day, Achievements, Events, Gallery, FinalScreen } from './sections'
 
 function App() {
   return (
@@ -8,7 +9,14 @@ function App() {
       <main>
         <Cover />
         <About />
+        <Space />
+        <Day />
+        <Achievements />
+        <Events />
+        <Gallery />
+        <FinalScreen />
       </main>
+      <Footer />
     </>
   )
 }
