@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './Gallery.module.scss';
 
 
@@ -14,10 +14,39 @@ const IMAGES = [
 
 export function Gallery() {
   const [activeCategory, setActiveCategory] = useState('Все');
+  const [selectedImageId, setSelectedImageId] = useState<number | null>(null);
 
   const filteredImages = activeCategory === 'Все' 
     ? IMAGES 
     : IMAGES.filter(img => img.category === activeCategory);
+
+  const selectedImageIndex = filteredImages.findIndex(img => img.id === selectedImageId);
+  const selectedImage = selectedImageIndex !== -1 ? filteredImages[selectedImageIndex] : null;
+
+  useEffect(() => {
+    if (selectedImageId !== null) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [selectedImageId]);
+
+  const closeLightbox = () => setSelectedImageId(null);
+  
+  const showNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedImageIndex < filteredImages.length - 1) {
+      setSelectedImageId(filteredImages[selectedImageIndex + 1].id);
+    }
+  };
+
+  const showPrev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedImageIndex > 0) {
+      setSelectedImageId(filteredImages[selectedImageIndex - 1].id);
+    }
+  };
 
   return (
     <section id="gallery" className={styles.gallery} aria-label="Галерея">
@@ -32,7 +61,10 @@ export function Gallery() {
             <button
               key={cat}
               className={`${styles.gallery__filter} ${activeCategory === cat ? styles['gallery__filter--active'] : ''}`}
-              onClick={() => setActiveCategory(cat)}
+              onClick={() => {
+                setActiveCategory(cat);
+                setSelectedImageId(null);
+              }}
             >
               {cat}
             </button>
@@ -41,12 +73,45 @@ export function Gallery() {
 
         <div className={styles.gallery__grid}>
           {filteredImages.map(img => (
-            <div key={img.id} className={`${styles.gallery__item} ${styles[`gallery__item--${img.size}`]}`}>
+            <div 
+              key={img.id} 
+              className={`${styles.gallery__item} ${styles[`gallery__item--${img.size}`]}`}
+              onClick={() => setSelectedImageId(img.id)}
+            >
               <img src={img.img} alt={`Галерея - ${img.category}`} />
             </div>
           ))}
         </div>
       </div>
+
+      {selectedImage && (
+        <div className={styles.lightbox} onClick={closeLightbox}>
+          <button className={styles.lightbox__close} onClick={closeLightbox}>&times;</button>
+          
+          <button 
+            className={`${styles.lightbox__nav} ${styles['lightbox__nav--prev']}`} 
+            onClick={showPrev}
+            disabled={selectedImageIndex === 0}
+          >
+            &#8592;
+          </button>
+
+          <img 
+            src={selectedImage.img} 
+            alt={`Галерея - ${selectedImage.category}`} 
+            className={styles.lightbox__image}
+            onClick={(e) => e.stopPropagation()} 
+          />
+
+          <button 
+            className={`${styles.lightbox__nav} ${styles['lightbox__nav--next']}`} 
+            onClick={showNext}
+            disabled={selectedImageIndex === filteredImages.length - 1}
+          >
+            &#8594;
+          </button>
+        </div>
+      )}
     </section>
   );
 }
