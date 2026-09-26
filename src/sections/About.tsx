@@ -1,5 +1,5 @@
 import styles from './About.module.scss';
-import placeholderImg from '../assets/images/cover/building-placeholder.svg';
+const placeholderImg = '/images/IMG_0131.jpg';
 
 export function About() {
   return (
@@ -28,16 +28,16 @@ export function About() {
           
           <div className={styles.about__stats}>
             <div className={styles.stat}>
-              <span className={styles.stat__value}>—</span>
+              <span className={styles.stat__value}>1250</span>
               <span className={styles.stat__label}>учеников</span>
             </div>
             <div className={styles.stat}>
-              <span className={styles.stat__value}>—</span>
+              <span className={styles.stat__value}>~30</span>
               <span className={styles.stat__label}>кабинетов</span>
             </div>
             <div className={styles.stat}>
-              <span className={styles.stat__value}>—</span>
-              <span className={styles.stat__label}>лет истории</span>
+              <span className={styles.stat__value}>71</span>
+              <span className={styles.stat__label}>год истории</span>
             </div>
           </div>
         </div>
