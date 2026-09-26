@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import styles from './Gallery.module.scss';
-import placeholderImg from '../assets/images/cover/building-placeholder.svg';
+
 
 const CATEGORIES = ['Все', 'Кабинеты', 'Спорт', 'Столовая', 'Территория'];
 const IMAGES = [
-  { id: 1, category: 'Кабинеты', size: 'large' },
-  { id: 2, category: 'Спорт', size: 'small' },
-  { id: 3, category: 'Территория', size: 'small' },
-  { id: 4, category: 'Столовая', size: 'medium' },
-  { id: 5, category: 'Кабинеты', size: 'small' },
-  { id: 6, category: 'Спорт', size: 'large' },
+  { id: 1, category: 'Кабинеты', size: 'large', img: '/images/IMG_0120.jpg' },
+  { id: 2, category: 'Спорт', size: 'small', img: '/images/IMG_0135.jpg' },
+  { id: 3, category: 'Территория', size: 'small', img: '/images/IMG_0122.jpg' },
+  { id: 4, category: 'Столовая', size: 'medium', img: '/images/IMG_0127.jpg' },
+  { id: 5, category: 'Кабинеты', size: 'small', img: '/images/IMG_0121.jpg' },
+  { id: 6, category: 'Территория', size: 'large', img: '/images/IMG_0124.jpg' },
 ];
 
 export function Gallery() {
@@ -42,7 +42,7 @@ export function Gallery() {
         <div className={styles.gallery__grid}>
           {filteredImages.map(img => (
             <div key={img.id} className={`${styles.gallery__item} ${styles[`gallery__item--${img.size}`]}`}>
-              <img src={placeholderImg} alt={`Галерея - ${img.category}`} />
+              <img src={img.img} alt={`Галерея - ${img.category}`} />
             </div>
           ))}
         </div>

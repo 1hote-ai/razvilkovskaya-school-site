@@ -1,5 +1,5 @@
 import styles from './FinalScreen.module.scss';
-import bgImage from '../assets/images/cover/building-placeholder.svg';
+const bgImage = '/images/IMG_0136.jpg';
 
 export function FinalScreen() {
   const scrollToTop = () => {

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styles from './Space.module.scss';
-import roomPlaceholder from '../assets/images/cover/building-placeholder.svg';
+const roomPlaceholder = '/images/IMG_0119.jpg';
 
 const FLOORS = [
   { id: 1, label: '1 этаж', rooms: ['Информация о кабинетах будет добавлена'] },

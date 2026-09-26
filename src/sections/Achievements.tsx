@@ -1,11 +1,11 @@
 import styles from './Achievements.module.scss';
-import placeholderImg from '../assets/images/cover/building-placeholder.svg';
+const placeholderImg = '/images/IMG_0128.jpg';
 
 const ACHIEVEMENTS = [
-  { id: 1, title: 'Достижение школы (в разработке)', category: 'Достижения', year: '—', desc: 'Информация о наградах, кубках и дипломах будет опубликована позже.' },
-  { id: 2, title: 'Учебные награды', category: 'Олимпиады', year: '—', desc: 'Раздел находится в стадии наполнения материалами.' },
-  { id: 3, title: 'Спортивные успехи', category: 'Спорт', year: '—', desc: 'Раздел находится в стадии наполнения материалами.' },
-  { id: 4, title: 'Творчество', category: 'Конкурсы', year: '—', desc: 'Раздел находится в стадии наполнения материалами.' },
+  { id: 1, title: 'Достижение школы (в разработке)', category: 'Достижения', year: '—', desc: 'Информация о наградах, кубках и дипломах будет опубликована позже.', img: '/images/IMG_0128.jpg' },
+  { id: 2, title: 'Учебные награды', category: 'Олимпиады', year: '—', desc: 'Раздел находится в стадии наполнения материалами.', img: '/images/IMG_0130.jpg' },
+  { id: 3, title: 'Спортивные успехи', category: 'Спорт', year: '—', desc: 'Раздел находится в стадии наполнения материалами.', img: '/images/IMG_0135.jpg' },
+  { id: 4, title: 'Творчество', category: 'Конкурсы', year: '—', desc: 'Раздел находится в стадии наполнения материалами.', img: '/images/IMG_0129.jpg' },
 ];
 
 export function Achievements() {
@@ -21,7 +21,7 @@ export function Achievements() {
           {ACHIEVEMENTS.map((item, index) => (
             <div key={item.id} className={`${styles.card} ${index === 0 ? styles['card--featured'] : ''}`}>
               <div className={styles.card__image}>
-                <img src={placeholderImg} alt={item.category} />
+                <img src={item.img || placeholderImg} alt={item.category} />
               </div>
               <div className={styles.card__content}>
                 <div className={styles.card__meta}>

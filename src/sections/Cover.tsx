@@ -1,5 +1,5 @@
 import styles from './Cover.module.scss';
-import coverImage from '../assets/images/cover/building-placeholder.svg';
+const coverImage = '/images/IMG_0134.jpg';
 
 export function Cover() {
   return (

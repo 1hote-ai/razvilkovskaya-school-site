@@ -1,10 +1,10 @@
 import styles from './Events.module.scss';
-import placeholderImg from '../assets/images/cover/building-placeholder.svg';
+const placeholderImg = '/images/IMG_0129.jpg';
 
 const EVENTS = [
-  { id: 1, date: 'Дата (в разработке)', title: 'Главное событие', desc: 'Здесь будет располагаться анонс или отчет о главном мероприятии школы.', category: 'Событие' },
-  { id: 2, date: '—', title: 'Предстоящее мероприятие', desc: 'Краткое описание события будет добавлено позже.', category: 'Анонс' },
-  { id: 3, date: '—', title: 'Школьная новость', desc: 'Информация находится в стадии подготовки.', category: 'Новость' },
+  { id: 1, date: 'Дата (в разработке)', title: 'Главное событие', desc: 'Здесь будет располагаться анонс или отчет о главном мероприятии школы.', category: 'Событие', img: '/images/IMG_0129.jpg' },
+  { id: 2, date: '—', title: 'Предстоящее мероприятие', desc: 'Краткое описание события будет добавлено позже.', category: 'Анонс', img: '/images/IMG_0126.jpg' },
+  { id: 3, date: '—', title: 'Школьная новость', desc: 'Информация находится в стадии подготовки.', category: 'Новость', img: '/images/IMG_0133.jpg' },
 ];
 
 export function Events() {
@@ -20,7 +20,7 @@ export function Events() {
           {EVENTS.map((event, index) => (
             <div key={event.id} className={`${styles.event} ${index === 0 ? styles['event--featured'] : ''}`}>
               <div className={styles.event__image}>
-                <img src={placeholderImg} alt={event.category} />
+                <img src={event.img || placeholderImg} alt={event.category} />
               </div>
               <div className={styles.event__content}>
                 <div className={styles.event__meta}>
