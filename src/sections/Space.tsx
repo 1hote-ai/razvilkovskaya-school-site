@@ -2,14 +2,16 @@ import { useState } from 'react';
 import styles from './Space.module.scss';
 const roomPlaceholder = '/images/IMG_0119.jpg';
 
-const FLOORS = [
-  { id: 1, label: '1 этаж', rooms: ['Информация о кабинетах будет добавлена'] },
-  { id: 2, label: '2 этаж', rooms: ['Информация о кабинетах будет добавлена'] },
-  { id: 3, label: '3 этаж', rooms: ['Информация о кабинетах будет добавлена'] },
+const ZONES = [
+  { id: 'sport', label: 'Спортивный зал', desc: 'Просторный зал для уроков физкультуры и спортивных секций', img: '/images/IMG_0121.jpg' },
+  { id: 'food', label: 'Столовая', desc: 'Светлое помещение для комфортного питания учеников', img: '/images/IMG_0135.jpg' },
+  { id: 'library', label: 'Библиотека', desc: 'Пространство для чтения, учебы и подготовки к урокам', img: '/images/IMG_0119.jpg' },
+  { id: 'classes', label: 'Учебные классы', desc: 'Современные кабинеты, оборудованные всем необходимым', img: '/images/IMG_0123.jpg' },
 ];
 
 export function Space() {
-  const [activeFloor, setActiveFloor] = useState(1);
+  const [activeZoneId, setActiveZoneId] = useState('sport');
+  const activeZone = ZONES.find(z => z.id === activeZoneId) || ZONES[0];
 
   return (
     <section id="space" className={styles.space} aria-label="Пространство школы">
@@ -21,28 +23,24 @@ export function Space() {
 
         <div className={styles.space__interactive}>
           <div className={styles.space__controls}>
-            {FLOORS.map(floor => (
+            {ZONES.map(zone => (
               <button
-                key={floor.id}
-                className={`${styles.space__btn} ${activeFloor === floor.id ? styles['space__btn--active'] : ''}`}
-                onClick={() => setActiveFloor(floor.id)}
+                key={zone.id}
+                className={`${styles.space__btn} ${activeZoneId === zone.id ? styles['space__btn--active'] : ''}`}
+                onClick={() => setActiveZoneId(zone.id)}
               >
-                {floor.label}
+                {zone.label}
               </button>
             ))}
           </div>
 
           <div className={styles.space__content}>
-            <div className={styles.space__mapPlaceholder}>
-              <img src={roomPlaceholder} alt="Схема этажа" />
-            </div>
-            <div className={styles.space__info}>
-              <h3>{FLOORS.find(f => f.id === activeFloor)?.label}</h3>
-              <ul>
-                {FLOORS.find(f => f.id === activeFloor)?.rooms.map(room => (
-                  <li key={room} className={styles.space__placeholderItem}>{room}</li>
-                ))}
-              </ul>
+            <div className={styles.space__imageWrapper}>
+              <img src={activeZone.img || roomPlaceholder} alt={activeZone.label} />
+              <div className={styles.space__info}>
+                <h3>{activeZone.label}</h3>
+                <p>{activeZone.desc}</p>
+              </div>
             </div>
           </div>
         </div>

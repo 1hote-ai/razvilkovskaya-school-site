@@ -44,12 +44,8 @@
     grid-template-columns: 1fr;
     gap: $space-lg;
 
-    @include media-sm {
+    @include media-md {
       grid-template-columns: repeat(2, 1fr);
-    }
-    
-    @include media-lg {
-      grid-template-columns: repeat(4, 1fr);
     }
   }
 }
@@ -115,26 +111,5 @@
   &__desc {
     font-size: $font-size-sm;
     color: $color-text-secondary;
-  }
-
-  &--featured {
-    @include media-lg {
-      grid-column: span 2;
-      flex-direction: row;
-
-      .card__image {
-        flex: 1;
-        height: auto;
-        min-height: 250px;
-      }
-      .card__content {
-        flex: 1;
-        padding: $space-lg;
-        justify-content: center;
-      }
-      .card__title {
-        font-size: $font-size-xl;
-      }
-    }
   }
 }

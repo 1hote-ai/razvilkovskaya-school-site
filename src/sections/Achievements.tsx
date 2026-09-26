@@ -2,10 +2,10 @@ import styles from './Achievements.module.scss';
 const placeholderImg = '/images/IMG_0128.jpg';
 
 const ACHIEVEMENTS = [
-  { id: 1, title: 'Достижение школы (в разработке)', category: 'Достижения', year: '—', desc: 'Информация о наградах, кубках и дипломах будет опубликована позже.', img: '/images/IMG_0128.jpg' },
-  { id: 2, title: 'Учебные награды', category: 'Олимпиады', year: '—', desc: 'Раздел находится в стадии наполнения материалами.', img: '/images/IMG_0130.jpg' },
-  { id: 3, title: 'Спортивные успехи', category: 'Спорт', year: '—', desc: 'Раздел находится в стадии наполнения материалами.', img: '/images/IMG_0135.jpg' },
-  { id: 4, title: 'Творчество', category: 'Конкурсы', year: '—', desc: 'Раздел находится в стадии наполнения материалами.', img: '/images/IMG_0129.jpg' },
+  { id: 1, title: 'Гордость нашей школы', category: 'Главные достижения', year: '2026', desc: 'Ежегодные победы на муниципальных и региональных этапах.', img: '/images/IMG_0128.jpg' },
+  { id: 2, title: 'Учебные награды', category: 'Олимпиады', year: '2026', desc: 'Призовые места во Всероссийской олимпиаде школьников.', img: '/images/IMG_0130.jpg' },
+  { id: 3, title: 'Спортивные успехи', category: 'Спорт', year: '2026', desc: 'Победы в районных спортивных соревнованиях и турнирах.', img: '/images/IMG_0128.jpg' },
+  { id: 4, title: 'Творческие победы', category: 'Конкурсы', year: '2026', desc: 'Участие в региональных выставках и творческих смотрах.', img: '/images/IMG_0129.jpg' },
 ];
 
 export function Achievements() {
@@ -18,8 +18,8 @@ export function Achievements() {
         </div>
 
         <div className={styles.achievements__grid}>
-          {ACHIEVEMENTS.map((item, index) => (
-            <div key={item.id} className={`${styles.card} ${index === 0 ? styles['card--featured'] : ''}`}>
+          {ACHIEVEMENTS.map((item) => (
+            <div key={item.id} className={styles.card}>
               <div className={styles.card__image}>
                 <img src={item.img || placeholderImg} alt={item.category} />
               </div>

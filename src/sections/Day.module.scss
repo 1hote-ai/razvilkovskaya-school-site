@@ -41,49 +41,51 @@
 
   &__timeline {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: $space-lg;
-    max-width: 600px;
-    margin: 0 auto;
+    overflow-x: auto;
+    padding-bottom: $space-xl;
+    padding-top: $space-xl;
     position: relative;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    
+    // Скрываем скроллбар для эстетики
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     &::before {
       content: '';
       position: absolute;
-      left: 20px;
-      top: 0;
-      bottom: 0;
-      width: 1px;
+      top: 55px; // Центр кружочка
+      left: 0;
+      right: 0;
+      height: 1px;
       background-color: $color-border;
-      
-      @include media-sm {
-        left: 80px;
-      }
+      z-index: 0;
     }
   }
 
   &__item {
     display: flex;
+    flex-direction: column;
     gap: $space-md;
     position: relative;
-    
-    @include media-sm {
-      gap: $space-xl;
-    }
+    flex: 0 0 280px;
+    scroll-snap-align: start;
+    z-index: 1;
 
     &::before {
       content: '';
       position: absolute;
-      left: 17px;
-      top: 8px;
-      width: 7px;
-      height: 7px;
+      top: 31px; // Выровнено по линии
+      left: 0;
+      width: 9px;
+      height: 9px;
       border-radius: 50%;
       background-color: $color-accent;
-      
-      @include media-sm {
-        left: 77px;
-      }
     }
   }
 
@@ -91,25 +93,21 @@
     font-family: $font-family-heading;
     font-size: $font-size-md;
     color: $color-accent;
-    width: 60px;
-    flex-shrink: 0;
-    
-    @include media-sm {
-      width: 100px;
-      font-size: $font-size-lg;
-      text-align: right;
-    }
+    background: $color-bg-secondary;
+    padding-right: $space-sm;
+    display: inline-block;
+    align-self: flex-start;
   }
 
   &__content {
     background-color: $color-bg-primary;
-    padding: $space-md;
+    padding: $space-lg;
     border-radius: $border-radius-lg;
     border: 1px solid $color-border-light;
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    gap: $space-2xs;
+    gap: $space-xs;
+    min-height: 140px;
   }
 
   &__event {
